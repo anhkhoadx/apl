@@ -1,3 +1,4 @@
+import { CategoriesComponent } from './categories/categories.component';
 import { ReadShopComponent } from './shops/read-shop/read-shop.component';
 import { ShopsComponent } from './shops/shops.component';
 import { NgModule } from '@angular/core';
@@ -22,8 +23,8 @@ import { ChangePasswordComponent } from './users/change-password/change-password
                     { path: 'users', component: UsersComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
-                    { path: 'khoa', component: ReadShopComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
                     { path: 'shops', component: ShopsComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
+                    { path: 'categories', component: CategoriesComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent },
                     { path: 'update-password', component: ChangePasswordComponent }
                 ]

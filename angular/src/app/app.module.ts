@@ -1,3 +1,6 @@
+import { EditCategoryDialogComponent } from './categories/edit-category/edit-category-dialog.component';
+import { CreateCategoryDialogComponent } from './categories/create-category/create-category-dialog.component';
+import { CategoriesComponent } from './categories/categories.component';
 import { ShopRoutingModule } from './shops/shop-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -74,7 +77,11 @@ import { ReadShopComponent } from './shops/read-shop/read-shop.component';
     ShopsComponent,
     ReadShopComponent,
     CreateShopDialogComponent,
-    EditShopDialogComponent
+    EditShopDialogComponent,
+    // category
+    CategoriesComponent, 
+    CreateCategoryDialogComponent,
+    EditCategoryDialogComponent
   ],
   imports: [
     CommonModule,
@@ -104,7 +111,10 @@ import { ReadShopComponent } from './shops/read-shop/read-shop.component';
     ResetPasswordDialogComponent,
     // shop
     CreateShopDialogComponent,
-    EditShopDialogComponent
+    EditShopDialogComponent,
+    // category
+    CreateCategoryDialogComponent,
+    EditCategoryDialogComponent
   ]
 })
 export class AppModule {}

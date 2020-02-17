@@ -19,7 +19,6 @@ export class FormGroupErrorStateMatcher implements ErrorStateMatcher {
     templateUrl: './read-shop.component.html'
 })
 export class ReadShopComponent extends AppComponentBase implements OnInit {
-
     shop: ShopDto = new ShopDto();
     id;
     public isLoading: boolean;
