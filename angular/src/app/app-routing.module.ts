@@ -1,3 +1,5 @@
+import { ReadShopComponent } from './shops/read-shop/read-shop.component';
+import { ShopsComponent } from './shops/shops.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -11,7 +13,7 @@ import { ChangePasswordComponent } from './users/change-password/change-password
 
 @NgModule({
     imports: [
-        RouterModule.forChild([
+        RouterModule.forChild([      
             {
                 path: '',
                 component: AppComponent,
@@ -20,6 +22,8 @@ import { ChangePasswordComponent } from './users/change-password/change-password
                     { path: 'users', component: UsersComponent, data: { permission: 'Pages.Users' }, canActivate: [AppRouteGuard] },
                     { path: 'roles', component: RolesComponent, data: { permission: 'Pages.Roles' }, canActivate: [AppRouteGuard] },
                     { path: 'tenants', component: TenantsComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
+                    { path: 'khoa', component: ReadShopComponent, data: { permission: 'Pages.Tenants' }, canActivate: [AppRouteGuard] },
+                    { path: 'shops', component: ShopsComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
                     { path: 'about', component: AboutComponent },
                     { path: 'update-password', component: ChangePasswordComponent }
                 ]

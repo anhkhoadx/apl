@@ -1,3 +1,4 @@
+import { ShopRoutingModule } from './shops/shop-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -38,6 +39,12 @@ import { EditUserDialogComponent } from '@app/users/edit-user/edit-user-dialog.c
 import { ChangePasswordComponent } from './users/change-password/change-password.component';
 import { ResetPasswordDialogComponent } from './users/reset-password/reset-password.component';
 
+// shops
+import { ShopsComponent } from './shops/shops.component';
+import { CreateShopDialogComponent } from './shops/create-shop/create-shop-dialog.component';
+import { EditShopDialogComponent } from './shops/edit-shop/edit-shop-dialog.component';
+import { ReadShopComponent } from './shops/read-shop/read-shop.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,7 +69,12 @@ import { ResetPasswordDialogComponent } from './users/reset-password/reset-passw
     CreateUserDialogComponent,
     EditUserDialogComponent,
     ChangePasswordComponent,
-    ResetPasswordDialogComponent
+    ResetPasswordDialogComponent,   
+    // shop
+    ShopsComponent,
+    ReadShopComponent,
+    CreateShopDialogComponent,
+    EditShopDialogComponent
   ],
   imports: [
     CommonModule,
@@ -73,6 +85,7 @@ import { ResetPasswordDialogComponent } from './users/reset-password/reset-passw
     ModalModule.forRoot(),
     AbpModule,
     AppRoutingModule,
+    ShopRoutingModule,
     ServiceProxyModule,
     SharedModule,
     NgxPaginationModule
@@ -88,7 +101,10 @@ import { ResetPasswordDialogComponent } from './users/reset-password/reset-passw
     // users
     CreateUserDialogComponent,
     EditUserDialogComponent,
-    ResetPasswordDialogComponent
+    ResetPasswordDialogComponent,
+    // shop
+    CreateShopDialogComponent,
+    EditShopDialogComponent
   ]
 })
 export class AppModule {}
