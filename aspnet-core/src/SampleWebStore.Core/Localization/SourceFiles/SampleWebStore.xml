@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <localizationDictionary culture="en">
   <texts>
-    <text name="HomePage" value="Home page" />
+	  <text name="Shops" value="Shops" />
+		<text name="HomePage" value="Home page" />
     <text name="About" value="About" />
     <text name="WelcomeMessage" value="Welcome to SampleWebStore!" />
     <text name="FormIsNotValidMessage" value="Form is not valid. Please check and fix errors." />

@@ -1,15 +1,14 @@
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Abp;
 using Abp.Extensions;
 using Abp.Notifications;
 using Abp.Timing;
-using Abp.Web.Security.AntiForgery;
+using Microsoft.AspNetCore.Mvc;
 using SampleWebStore.Controllers;
+using System.Threading.Tasks;
 
 namespace SampleWebStore.Web.Host.Controllers
 {
-    public class HomeController : SampleWebStoreControllerBase
+	public class HomeController : SampleWebStoreControllerBase
     {
         private readonly INotificationPublisher _notificationPublisher;
 

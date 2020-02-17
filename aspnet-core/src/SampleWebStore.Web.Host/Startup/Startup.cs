@@ -23,7 +23,7 @@ namespace SampleWebStore.Web.Host.Startup
 {
     public class Startup
     {
-        private const string _defaultCorsPolicyName = "localhost";
+        private const string DefaultCorsPolicyName = "localhost";
 
         private readonly IConfigurationRoot _appConfiguration;
 
@@ -56,7 +56,7 @@ namespace SampleWebStore.Web.Host.Startup
             // Configure CORS for angular2 UI
             services.AddCors(
                 options => options.AddPolicy(
-                    _defaultCorsPolicyName,
+                    DefaultCorsPolicyName,
                     builder => builder
                         .WithOrigins(
                             // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
@@ -100,7 +100,7 @@ namespace SampleWebStore.Web.Host.Startup
         {
             app.UseAbp(options => { options.UseAbpRequestLocalization = false; }); // Initializes ABP framework.
 
-            app.UseCors(_defaultCorsPolicyName); // Enable CORS!
+            app.UseCors(DefaultCorsPolicyName); // Enable CORS!
 
             app.UseStaticFiles();
 
