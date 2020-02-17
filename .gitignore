@@ -9,3 +9,4 @@ aspnet-core/src/SampleWebStore.Web.Mvc/App_Data/Logs/
 aspnet-core/src/SampleWebStore.Migrator/Logs/Logs.txt
 /angular/package-lock.json
 /angular/yarn.lock
+/angular/.vscode
