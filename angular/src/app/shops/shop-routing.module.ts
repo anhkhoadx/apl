@@ -1,3 +1,4 @@
+import { ProductsComponent } from './../products/product.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AppRouteGuard } from '@shared/auth/auth-route-guard';
@@ -11,7 +12,9 @@ import { AppComponent } from './../app.component';
                 path: 'shops',
                 component: AppComponent,
                 children: [
-                    { path: 'detail/:id', component: ReadShopComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] }
+                    { path: 'detail/:id', component: ReadShopComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
+                    { path: ':id/products', component: ProductsComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] }
+
                 ]
             }
         ])

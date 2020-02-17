@@ -2,15 +2,15 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
       <div class="card main-content">
           <div class="header">
-              <h2>Shop detail</h2>
+              <h2>Product detail</h2>
           </div>
           <div class="body table-responsive" #body>
               <mat-dialog-content style="width:600px;height:300px;">
                 <form>
                 <div class="row">                  
                   <div class="col-md-12 text-right p-r-25">
-                      <button style="margin-right: 10px !important;" mat-raised-button color="primary" (click)="back()">Shop list</button>
-                      <button mat-raised-button color="primary" (click)="showProducts(shop)">Product list</button>
+                      <button style="margin-right: 10px !important;" mat-raised-button color="primary" (click)="back()">Product list</button>
+                      <button mat-raised-button color="primary">Product list</button>
                     </div>                  
                 </div>
               </form>
@@ -20,8 +20,8 @@
                         <input
                           matInput
                           name="Name"
-                          placeholder="Shop name"
-                          [(ngModel)]="shop.name"
+                          placeholder="Product name"
+                          [(ngModel)]="product.name"
                           required
                         />
                       </mat-form-field>
@@ -29,8 +29,8 @@
                         <textarea
                           matInput
                           name="Description"
-                          placeholder="Shop description"
-                          [(ngModel)]="shop.description"
+                          placeholder="Product description"
+                          [(ngModel)]="product.description"
                           required
                         ></textarea>
                       </mat-form-field>
@@ -38,8 +38,8 @@
                         <input
                           matInput
                           name="Address"
-                          placeholder="Shop address"
-                          [(ngModel)]="shop.address"           
+                          placeholder="Product address"
+                          [(ngModel)]="product.address"           
                         />
                       </mat-form-field>      
                     </div>

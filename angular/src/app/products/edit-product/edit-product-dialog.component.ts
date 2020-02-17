@@ -8,12 +8,13 @@ import { finalize } from 'rxjs/operators';
 import * as _ from 'lodash';
 import { AppComponentBase } from '@shared/app-component-base';
 import {
-  ShopServiceProxy,  
-  ShopDto
+  ProductServiceProxy,  
+  ProductDto,
+  PermissionDto
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
-  templateUrl: 'edit-shop-dialog.component.html',
+  templateUrl: 'edit-product-dialog.component.html',
   styles: [
     `
       mat-form-field {
@@ -25,30 +26,30 @@ import {
     `
   ]
 })
-export class EditShopDialogComponent extends AppComponentBase
+export class EditProductDialogComponent extends AppComponentBase
   implements OnInit {
   saving = false;
-  shop: ShopDto = new ShopDto();
+  product: ProductDto = new ProductDto();
 
   constructor(
     injector: Injector,
-    private _shopService: ShopServiceProxy,
-    private _dialogRef: MatDialogRef<EditShopDialogComponent>,
+    private _productService: ProductServiceProxy,
+    private _dialogRef: MatDialogRef<EditProductDialogComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) private _id: number
   ) {
     super(injector);
   }
 
   ngOnInit(): void {
-    this._shopService.get(this._id).subscribe((result: ShopDto) => {
-      this.shop = result;
+    this._productService.get(this._id).subscribe((result: ProductDto) => {
+      this.product = result;
     });
   }
  
   save(): void {
     this.saving = true;
-    this._shopService
-      .update(this.shop)
+    this._productService
+      .update(this.product)
       .pipe(
         finalize(() => {
           this.saving = false;

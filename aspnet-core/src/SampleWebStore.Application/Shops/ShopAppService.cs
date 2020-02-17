@@ -1,27 +1,23 @@
-﻿using System.Linq;
-using Abp.Application.Services;
+﻿using Abp.Application.Services;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
-using Abp.Runtime.Session;
+using Abp.Extensions;
+using Abp.Linq.Extensions;
 using Abp.UI;
+using SampleWebStore.Authorization;
 using SampleWebStore.Pagination;
 using SampleWebStore.Shops.Dto;
+using System.Linq;
 using System.Threading.Tasks;
-using SampleWebStore.Authorization;
-using Abp.Linq.Extensions;
-using Abp.Extensions;
 
 namespace SampleWebStore.Shops
 {
 	[AbpAuthorize(PermissionNames.PagesShops)]
 	public class ShopAppService : AsyncCrudAppService<Shop, ShopDto, long, PagedQueryResultRequestDto, CreateShopDto, CreateShopDto>, IShopAppService
 	{
-		private readonly IAbpSession _abpSession;
-
-		public ShopAppService(IRepository<Shop, long> repository, IAbpSession abpSession)
+		public ShopAppService(IRepository<Shop, long> repository)
 			: base(repository)
 		{
-			_abpSession = abpSession;
 		}
 
 		public override async Task<ShopDto> CreateAsync(CreateShopDto input)
@@ -87,12 +83,12 @@ namespace SampleWebStore.Shops
 
 		private long GetUserId()
 		{
-			if (_abpSession.UserId == null)
+			if (AbpSession.UserId == null)
 			{
 				throw new UserFriendlyException("Please log in to continue");
 			}
 
-			return _abpSession.UserId.Value;
+			return AbpSession.UserId.Value;
 		}
 	}
 }

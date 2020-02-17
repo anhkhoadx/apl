@@ -1,6 +1,4 @@
-import { EditCategoryDialogComponent } from './categories/edit-category/edit-category-dialog.component';
-import { CreateCategoryDialogComponent } from './categories/create-category/create-category-dialog.component';
-import { CategoriesComponent } from './categories/categories.component';
+import { ProductRoutingModule } from './products/product-routing.module';
 import { ShopRoutingModule } from './shops/shop-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -48,6 +46,17 @@ import { CreateShopDialogComponent } from './shops/create-shop/create-shop-dialo
 import { EditShopDialogComponent } from './shops/edit-shop/edit-shop-dialog.component';
 import { ReadShopComponent } from './shops/read-shop/read-shop.component';
 
+// categories
+import { EditCategoryDialogComponent } from './categories/edit-category/edit-category-dialog.component';
+import { CreateCategoryDialogComponent } from './categories/create-category/create-category-dialog.component';
+import { CategoriesComponent } from './categories/categories.component';
+
+// products
+import { CreateProductDialogComponent } from './products/create-product/create-product-dialog.component';
+import { EditProductDialogComponent } from './products/edit-product/edit-product-dialog.component';
+import { ReadProductComponent } from './products/read-product/read-product.component';
+import { ProductsComponent } from './products/product.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +90,12 @@ import { ReadShopComponent } from './shops/read-shop/read-shop.component';
     // category
     CategoriesComponent, 
     CreateCategoryDialogComponent,
-    EditCategoryDialogComponent
+    EditCategoryDialogComponent,
+    // product
+    ProductsComponent,
+    ReadProductComponent,
+    CreateProductDialogComponent,
+    EditProductDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -93,6 +107,7 @@ import { ReadShopComponent } from './shops/read-shop/read-shop.component';
     AbpModule,
     AppRoutingModule,
     ShopRoutingModule,
+    ProductRoutingModule,
     ServiceProxyModule,
     SharedModule,
     NgxPaginationModule
@@ -114,7 +129,10 @@ import { ReadShopComponent } from './shops/read-shop/read-shop.component';
     EditShopDialogComponent,
     // category
     CreateCategoryDialogComponent,
-    EditCategoryDialogComponent
+    EditCategoryDialogComponent,
+    // product
+    CreateProductDialogComponent,
+    EditProductDialogComponent,
   ]
 })
 export class AppModule {}

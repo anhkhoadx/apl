@@ -1,7 +1,7 @@
 import { Component, OnInit, Injector } from '@angular/core';
 import { appModuleAnimation } from '@shared/animations/routerTransition';
 import { AppComponentBase } from '@shared/app-component-base';
-import { ShopDto, ShopServiceProxy } from '@shared/service-proxies/service-proxies';
+import { ProductDto, ProductServiceProxy } from '@shared/service-proxies/service-proxies';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material';
@@ -16,16 +16,16 @@ export class FormGroupErrorStateMatcher implements ErrorStateMatcher {
 
 @Component({
     animations: [appModuleAnimation()],
-    templateUrl: './read-shop.component.html'
+    templateUrl: './read-product.component.html'
 })
-export class ReadShopComponent extends AppComponentBase implements OnInit {
-    shop: ShopDto = new ShopDto();
+export class ReadProductComponent extends AppComponentBase implements OnInit {
+    product: ProductDto = new ProductDto();
     id;
     public isLoading: boolean;
 
     public constructor(
         injector: Injector,
-        private _shopService: ShopServiceProxy,
+        private _productService: ProductServiceProxy,
         private _activatedRoute : ActivatedRoute,
         private _router: Router
     ) {
@@ -35,20 +35,16 @@ export class ReadShopComponent extends AppComponentBase implements OnInit {
     public ngOnInit() {
         this.isLoading = true;
         this.id =this._activatedRoute.snapshot.params['id']; 
-        this._shopService.get(this.id).subscribe((result: ShopDto) => {
-            this.shop = result;
+        this._productService.get(this.id).subscribe((result: ProductDto) => {
+            this.product = result;
           });
        
         this.doneLoading();
     }
 
     back(): void {
-       this._router.navigate(['app/shops']);
+       this._router.navigate(['app/products']);
     }
-
-    showProducts(shop: ShopDto): void {
-        this._router.navigate([`app/shops/${shop.id}/products`]);
-     }
 
     private doneLoading(): void {
         this.isLoading = false;

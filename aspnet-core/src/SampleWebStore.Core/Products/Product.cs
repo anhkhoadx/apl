@@ -18,7 +18,7 @@ namespace SampleWebStore.Products
 		[Range(0, int.MaxValue, ErrorMessage = "Product quantity shouldn't be a negative number}")]
 		public int Quantity { get; set; }
 
-		[Range(0, int.MaxValue, ErrorMessage = "Product price shouldn't be a negative number}")]
+		[Range(0, double.MaxValue, ErrorMessage = "Product price shouldn't be a negative number}")]
 		public double Price { get; set; }
 	
 		public bool IsDeleted { get; set; }
