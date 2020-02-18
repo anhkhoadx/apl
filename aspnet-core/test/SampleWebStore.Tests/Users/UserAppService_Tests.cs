@@ -38,7 +38,7 @@ namespace SampleWebStore.Tests.Users
                     IsActive = true,
                     Name = "John",
                     Surname = "Nash",
-                    Password = "123qwe",
+                    Password = "welcome",
                     UserName = "john.nash"
                 });
 
