@@ -9,8 +9,7 @@
                 <form>
                 <div class="row">                  
                   <div class="col-md-12 text-right p-r-25">
-                      <button style="margin-right: 10px !important;" mat-raised-button color="primary" (click)="back()">Product list</button>
-                      <button mat-raised-button color="primary">Product list</button>
+                      <button mat-raised-button color="primary" (click)="showProducts()">Product list</button>
                     </div>                  
                 </div>
               </form>
@@ -22,7 +21,7 @@
                           name="Name"
                           placeholder="Product name"
                           [(ngModel)]="product.name"
-                          required
+                          disabled
                         />
                       </mat-form-field>
                       <mat-form-field>
@@ -30,18 +29,43 @@
                           matInput
                           name="Description"
                           placeholder="Product description"
-                          [(ngModel)]="product.description"
-                          required
+                          [(ngModel)]="product.description"   
+                          disabled         
                         ></textarea>
                       </mat-form-field>
                       <mat-form-field>
                         <input
                           matInput
-                          name="Address"
-                          placeholder="Product address"
-                          [(ngModel)]="product.address"           
+                          type="number"
+                          min=0
+                          name="Quantity"
+                          placeholder="Product quantity"
+                          [(ngModel)]="product.quantity"  
+                          disabled         
                         />
-                      </mat-form-field>      
+                      </mat-form-field>   
+                      <mat-form-field>
+                          <input
+                            matInput
+                            type="number"
+                            min=0              
+                            name="Price"
+                            placeholder="Product price"
+                            [(ngModel)]="product.price"  
+                            disabled         
+                          />
+                      </mat-form-field>  
+                      <mat-form-field>
+                        <mat-label>Category</mat-label>         
+                        <input
+                          matInput
+                          name="Category"
+                          placeholder="Category"
+                          [(ngModel)]="category.name"  
+                          disabled         
+                      />
+                      
+                      </mat-form-field>        
                     </div>
                   </div>
                 </mat-dialog-content>

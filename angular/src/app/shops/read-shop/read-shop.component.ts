@@ -48,7 +48,7 @@ export class ReadShopComponent extends AppComponentBase implements OnInit {
 
     showProducts(shop: ShopDto): void {
         this._router.navigate([`app/shops/${shop.id}/products`]);
-     }
+    }
 
     private doneLoading(): void {
         this.isLoading = false;

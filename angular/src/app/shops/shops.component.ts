@@ -87,16 +87,16 @@ export class ShopsComponent extends PagedListingComponentBase<ShopDto> {
         );
     }
 
+    addProduct(shop: ShopDto): void {
+        this.showCreateOrEditShopDialog(shop.id);
+    }
+
     createShop(): void {
         this.showCreateOrEditShopDialog();
     }
 
     editShop(shop: ShopDto): void {
         this.showCreateOrEditShopDialog(shop.id);
-    }
-
-    readShop(shop: ShopDto): void {
-        this._router.navigate(['read', shop.id]);
     }
 
     showCreateOrEditShopDialog(id?: number): void {

@@ -21,27 +21,28 @@
                           matInput
                           name="Name"
                           placeholder="Shop name"
-                          [(ngModel)]="shop.name"
-                          required
+                          [(ngModel)]="shop.name" 
+                          disabled                        
                         />
-                      </mat-form-field>
+                      </mat-form-field>                      
+                      <mat-form-field>
+                        <input
+                          matInput
+                          name="Address"
+                          placeholder="Shop address"
+                          [(ngModel)]="shop.address"  
+                          disabled           
+                        />
+                      </mat-form-field>     
                       <mat-form-field>
                         <textarea
                           matInput
                           name="Description"
                           placeholder="Shop description"
                           [(ngModel)]="shop.description"
-                          required
+                          disabled  
                         ></textarea>
-                      </mat-form-field>
-                      <mat-form-field>
-                        <input
-                          matInput
-                          name="Address"
-                          placeholder="Shop address"
-                          [(ngModel)]="shop.address"           
-                        />
-                      </mat-form-field>      
+                      </mat-form-field> 
                     </div>
                   </div>
                 </mat-dialog-content>

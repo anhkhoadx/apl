@@ -52,7 +52,7 @@
                         totalItems: totalItems
                       })
               ">
-                            <td (click)="readShop(shop)"> <a [routerLink]="['detail', shop.id]">{{ shop.name }}</a></td>
+                            <td> <a [routerLink]="[shop.id]">{{ shop.name }}</a></td>
                             <td>{{ shop.address }}                               
                             </td>
                             <td>
@@ -60,9 +60,9 @@
                                     <mat-icon>menu</mat-icon>
                                 </button>
                                 <mat-menu #actionsMenu="matMenu">
-                                    <button mat-menu-item (click)="editShop(shop)">
-                                        <mat-icon>add</mat-icon>
-                                        <span>Add product</span>
+                                    <button mat-menu-item [routerLink]="[shop.id, 'products']">
+                                        <mat-icon>list</mat-icon>
+                                        <span>Show products</span>
                                     </button>
                                     <button mat-menu-item (click)="editShop(shop)">
                                         <mat-icon>edit</mat-icon>

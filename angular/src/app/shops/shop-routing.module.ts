@@ -1,3 +1,4 @@
+import { ReadProductComponent } from './../products/read-product/read-product.component';
 import { ProductsComponent } from './../products/product.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -12,9 +13,9 @@ import { AppComponent } from './../app.component';
                 path: 'shops',
                 component: AppComponent,
                 children: [
-                    { path: 'detail/:id', component: ReadShopComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
-                    { path: ':id/products', component: ProductsComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] }
-
+                    { path: ':id', component: ReadShopComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
+                    { path: ':id/products', component: ProductsComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] },
+                    { path: ':id/products/:productId', component: ReadProductComponent, data: { permission: 'Pages.Shops' }, canActivate: [AppRouteGuard] }
                 ]
             }
         ])

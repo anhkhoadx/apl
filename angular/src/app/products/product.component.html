@@ -37,7 +37,8 @@
                     <thead>
                         <tr>
                             <th>{{ "Name" | localize }}</th>
-                            <th>{{ "Address" | localize }}</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
                             <th>{{ "Actions" | localize }}</th>
                         </tr>
                     </thead>
@@ -52,18 +53,16 @@
                         totalItems: totalItems
                       })
               ">
-                            <td (click)="readProduct(product)"> <a [routerLink]="['detail', product.id]">{{ product.name }}</a></td>
-                            <td>{{ product.address }}                               
+                            <td> <a [routerLink]="[product.id]">{{ product.name }}</a></td>
+                            <td>{{ product.quantity }}                                                             
+                            </td>
+                            <td>{{ product.price }}                                                             
                             </td>
                             <td>
                                 <button class="action-button" mat-icon-button [matMenuTriggerFor]="actionsMenu">
                                     <mat-icon>menu</mat-icon>
                                 </button>
-                                <mat-menu #actionsMenu="matMenu">
-                                    <button mat-menu-item (click)="editProduct(product)">
-                                        <mat-icon>add</mat-icon>
-                                        <span>Add product</span>
-                                    </button>
+                                <mat-menu #actionsMenu="matMenu">                                    
                                     <button mat-menu-item (click)="editProduct(product)">
                                         <mat-icon>edit</mat-icon>
                                         <span>{{ "Edit" | localize }}</span>

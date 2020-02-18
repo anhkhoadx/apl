@@ -17,18 +17,46 @@
             matInput
             name="Description"
             placeholder="Product description"
-            [(ngModel)]="product.description"
-            required
+            [(ngModel)]="product.description"            
           ></textarea>
         </mat-form-field>
         <mat-form-field>
           <input
             matInput
-            name="Address"
-            placeholder="Product address"
-            [(ngModel)]="product.address"           
+            type="number"
+            min=0
+            name="Quantity"
+            placeholder="Product quantity"
+            [(ngModel)]="product.quantity"  
+            required         
           />
-        </mat-form-field>      
+        </mat-form-field>   
+        <mat-form-field>
+            <input
+              matInput
+              type="number"
+              min=0              
+              name="Price"
+              placeholder="Product price"
+              [(ngModel)]="product.price"  
+              required         
+            />
+        </mat-form-field>  
+        <mat-form-field>
+          <mat-label>Category</mat-label>         
+          <select matNativeControl [(ngModel)]="categoryId" name="categoryId" required>
+            <option *ngFor="
+            let category of (categories
+              | paginate
+                : {
+                    id: 'server',
+                    itemsPerPage: pageSize,
+                    currentPage: pageNumber,
+                    totalItems: totalItems
+                  })
+          " value="{{category.id}}" selected="{{category.id == categoryId}}">{{category.name}}</option>          
+          </select>        
+        </mat-form-field>    
       </div>
     </div>
   </mat-dialog-content>

@@ -38,6 +38,7 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
     products: ProductDto[] = [];
 
     keyword = '';   
+    shopId;
 
     constructor(
         injector: Injector,
@@ -55,7 +56,8 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
         finishedCallback: Function
     ): void {
         request.keyword = this.keyword;
-        request.shopId = this._activatedRoute.snapshot.params['id'];
+        this.shopId = this._activatedRoute.snapshot.params['id'];
+        request.shopId = this.shopId;
         
         this._productsService
             .getAll(request.keyword, request.shopId, request.skipCount, request.maxResultCount)
@@ -105,10 +107,17 @@ export class ProductsComponent extends PagedListingComponentBase<ProductDto> {
     showCreateOrEditProductDialog(id?: number): void {
         let createOrEditProductDialog;
         if (id === undefined || id <= 0) {
-            createOrEditProductDialog = this._dialog.open(CreateProductDialogComponent);
+            createOrEditProductDialog = this._dialog.open(CreateProductDialogComponent, {
+                data: {
+                    shopId: this.shopId
+                }
+            });
         } else {
             createOrEditProductDialog = this._dialog.open(EditProductDialogComponent, {
-                data: id
+                data: {
+                    shopId: this.shopId,
+                    id
+                }
             });
         }
 

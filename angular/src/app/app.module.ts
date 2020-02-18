@@ -1,4 +1,3 @@
-import { ProductRoutingModule } from './products/product-routing.module';
 import { ShopRoutingModule } from './shops/shop-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -107,7 +106,6 @@ import { ProductsComponent } from './products/product.component';
     AbpModule,
     AppRoutingModule,
     ShopRoutingModule,
-    ProductRoutingModule,
     ServiceProxyModule,
     SharedModule,
     NgxPaginationModule

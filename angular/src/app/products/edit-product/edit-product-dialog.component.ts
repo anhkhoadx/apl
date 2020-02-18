@@ -1,4 +1,4 @@
-import { Component, Injector, Inject, OnInit, Optional } from '@angular/core';
+import { Component, Injector, Inject, OnInit, Optional, Input } from '@angular/core';
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
@@ -10,7 +10,10 @@ import { AppComponentBase } from '@shared/app-component-base';
 import {
   ProductServiceProxy,  
   ProductDto,
-  PermissionDto
+  PermissionDto,
+  CategoryServiceProxy,
+  CategoryDto,
+  CategoryDtoPagedResultDto
 } from '@shared/service-proxies/service-proxies';
 
 @Component({
@@ -28,26 +31,36 @@ import {
 })
 export class EditProductDialogComponent extends AppComponentBase
   implements OnInit {
+  @Input() shopId: number;   
+  categoryId;
   saving = false;
   product: ProductDto = new ProductDto();
+  categories: CategoryDto[] = [];
 
   constructor(
     injector: Injector,
     private _productService: ProductServiceProxy,
+    private _categoryService: CategoryServiceProxy,
     private _dialogRef: MatDialogRef<EditProductDialogComponent>,
-    @Optional() @Inject(MAT_DIALOG_DATA) private _id: number
+    @Inject(MAT_DIALOG_DATA) private data: any
   ) {
     super(injector);
   }
 
   ngOnInit(): void {
-    this._productService.get(this._id).subscribe((result: ProductDto) => {
+    this._categoryService.getAll('',  0, 50).subscribe((result: CategoryDtoPagedResultDto) => {
+      this.categories = result.items;      
+    });
+
+    this._productService.get(this.data.id).subscribe((result: ProductDto) => {
       this.product = result;
+      this.categoryId = result.categoryId;
     });
   }
  
   save(): void {
     this.saving = true;
+    this.product.categoryId = this.categoryId;
     this._productService
       .update(this.product)
       .pipe(
